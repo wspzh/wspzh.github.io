@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://wspzh.github.io/atom.xml" rel="self"/>
   <link href="http://wspzh.github.io/"/>
-  <updated>2014-06-12T14:36:10+08:00</updated>
+  <updated>2014-06-12T16:49:07+08:00</updated>
   <id>http://wspzh.github.io/</id>
   <author>
     <name><![CDATA[WSPZH]]></name>
@@ -18,21 +18,29 @@
     <link href="http://wspzh.github.io/blog/2014/06/12/octopress-github-pages/"/>
     <updated>2014-06-12T14:29:32+08:00</updated>
     <id>http://wspzh.github.io/blog/2014/06/12/octopress-github-pages</id>
-    <content type="html"><![CDATA[<p>use Octopress for github, all refer from <a href="http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/">http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/</a>
-meet a error when rake deploy:
-<strong>error: failed to push some refs to</strong></p>
+    <content type="html"><![CDATA[<div>
+use Octopress for github, all refer from http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/
+</div>
 
-<p>how to resolve:
-<strong>cd _deploy</strong>
-<strong>git push -f</strong> 强推送过去</p>
 
-<p>创建并部署博文的一个完整过程：
-$ rake new_post[&ldquo;New Post&rdquo;]
-$ rake generate
-$ git add .
-$ git commit -am &ldquo;Some comment here.&rdquo;
-$ git push origin source
-$ rake deploy</p>
+<p><div>
+<h1>meet a error when rake deploy:</h1>
+<strong>error: failed to push some refs to</strong>
+<hr/>
+<h1>how to resolve:</h1>
+<strong>cd _deploy</strong><br/>
+<strong>git push -f</strong> # 强推送过去
+<div>
+<h1>创建并部署博文的一个完整过程：</h1>
+<ol>
+<li>$ rake new_post[&ldquo;New Post&rdquo;]</li>
+<li>$ rake generate</li>
+<li>$ git add .</li>
+<li>$ git commit -am &ldquo;Some comment here.&rdquo;</li>
+<li>$ git push origin source</li>
+<li>$ rake deploy</li>
+</ol>
+</div></p>
 ]]></content>
   </entry>
   
