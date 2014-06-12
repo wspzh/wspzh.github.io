@@ -9,14 +9,18 @@ categories:
 use Octopress for github, all refer from http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/
 </div>
 <div>
-<h1>meet a error when rake deploy:</h1>
+<h1>when rake deploy, meet a error when rake deploy:</h1>
 <strong>error: failed to push some refs to</strong> 
 <hr/>
 <h1>how to resolve:</h1>
-<strong>cd _deploy</strong><br/> 
-<strong>git push -f</strong> # 强推送过去
-<div>
+1.cd _deploy then 
+2.git pull origin master 
+or 
+2.git push -f # 强推送过去
+3.rake deploy
+</div>
 <h1>创建并部署博文的一个完整过程：</h1>
+<hr/>
 <ol>
 <li>$ rake new_post["New Post"]</li>
 <li>$ rake generate</li>
