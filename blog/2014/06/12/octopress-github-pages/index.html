@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - My Octopress Blog</title>
+  <title>Octopress_github_pages - My Octopress Blog</title>
   <meta name="author" content="WSPZH">
 
   
-  <meta name="description" content=" Blog Archive 2014 Octopress_github_pages
-Jun 12 2014 Recent Posts Octopress_github_pages ">
+  <meta name="description" content="use Octopress for github, all refer from http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/
+meet a error when rake &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ Jun 12 2014 Recent Posts Octopress_github_pages ">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://wspzh.github.io/blog/archives">
+  <link rel="canonical" href="http://wspzh.github.io/blog/2014/06/12/octopress-github-pages">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -65,31 +65,88 @@ Jun 12 2014 Recent Posts Octopress_github_pages ">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Octopress_github_pages</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-12T14:29:32+08:00" pubdate data-updated="true">Jun 12<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>use Octopress for github, all refer from <a href="http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/">http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/</a>
+meet a error when rake deploy:
+<strong>error: failed to push some refs to</strong></p>
 
-  
-  <h2>2014</h2>
+<p>how to resolve:
+<strong>cd _deploy</strong>
+<strong>git push -f</strong> 强推送过去</p>
 
-<article>
-  
-<h1><a href="/blog/2014/06/12/octopress-github-pages/">Octopress_github_pages</a></h1>
-<time datetime="2014-06-12T14:29:32+08:00" pubdate><span class='month'>Jun</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-
-
-</article>
-
+<p>创建并部署博文的一个完整过程：
+$ rake new_post[&ldquo;New Post&rdquo;]
+$ rake generate
+$ git add .
+$ git commit -am &ldquo;Some comment here.&rdquo;
+$ git push origin source
+$ rake deploy</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">WSPZH</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-12T14:29:32+08:00" pubdate data-updated="true">Jun 12<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
