@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://wspzh.github.io/atom.xml" rel="self"/>
   <link href="http://wspzh.github.io/"/>
-  <updated>2014-06-12T17:00:54+08:00</updated>
+  <updated>2014-06-13T17:25:20+08:00</updated>
   <id>http://wspzh.github.io/</id>
   <author>
     <name><![CDATA[WSPZH]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ios企业证书发布问题]]></title>
+    <link href="http://wspzh.github.io/blog/2014/06/13/iosqi-ye-zheng-shu-fa-bu-wen-ti/"/>
+    <updated>2014-06-13T17:17:02+08:00</updated>
+    <id>http://wspzh.github.io/blog/2014/06/13/iosqi-ye-zheng-shu-fa-bu-wen-ti</id>
+    <content type="html"><![CDATA[<h1>IOS 企业版证书发布应用时遇到的小问题</h1>
+
+
+<div>
+<h2>问题描述</h2>
+<div>利用企业版证书发布应用后使用手机安装测试时发现，应用可以安装成功，但是会留下一个正在安装的小图标</div>
+<h2>问题分析</h2>
+<div>应用的bundle id 与 plist文件中的bundle id 不一致导致</div>
+<h2>解决方法</h2>
+<div>检查两者是否一致，同时确认证书是否设置正确</div>
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress_github_pages]]></title>
