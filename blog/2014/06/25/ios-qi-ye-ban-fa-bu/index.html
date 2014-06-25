@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress_github_pages - My Octopress Blog</title>
+  <title>iOS 企业版APP发布 - My Octopress Blog</title>
   <meta name="author" content="WSPZH">
 
   
-  <meta name="description" content="use Octopress for github, all refer from http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/ when rake deploy, meet &hellip;">
+  <meta name="description" content="使用企业版证书签名，并通过ota模式发布应用 使用企业版证书打包应用，很简单，只要证书、签名、boundid 配置正确，直接操作，基本没有问题
+采用ota方法发布应用 关键语句如下：
+&lt;a href="itms-services://?action=download-manifest&amp &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://wspzh.github.io/blog/2014/06/12/octopress-github-pages">
+  <link rel="canonical" href="http://wspzh.github.io/blog/2014/06/25/ios-qi-ye-ban-fa-bu">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -68,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress_github_pages</h1>
+      <h1 class="entry-title">iOS 企业版APP发布</h1>
     
     
       <p class="meta">
@@ -84,48 +86,52 @@
   
 
 
-<time datetime="2014-06-12T14:29:32+08:00" pubdate data-updated="true">Jun 12<span>th</span>, 2014</time>
+<time datetime="2014-06-25T11:01:07+08:00" pubdate data-updated="true">Jun 25<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><div>
-use Octopress for github, all refer from http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/
-</div>
+<div class="entry-content"><p>使用企业版证书签名，并通过ota模式发布应用</p>
 
-
-<div>
-<h1>when rake deploy, meet a error when rake deploy:</h1>
-<strong>error: failed to push some refs to</strong> 
-<hr/>
-<h1>how to resolve:</h1>
-1.cd _deploy then 
-2.git pull origin master 
-or 
-2.git push -f # 强推送过去
-3.rake deploy
-</div>
-
-
-<h1>创建并部署博文的一个完整过程：</h1>
-
-
-<hr/>
-
+<p>使用企业版证书打包应用，很简单，只要证书、签名、boundid 配置正确，直接操作，基本没有问题
+采用ota方法发布应用 关键语句如下：
+<code>&lt;a href="itms-services://?action=download-manifest&amp;url=https://dn-xx.qbox.me/xx.plist"&gt;点击这里安装.&lt;/a&gt;</code>
+其中</p>
 
 <ol>
-<li>$ rake new_post[&#8220;New Post&#8221;]</li>
-<li>$ rake generate</li>
-<li>$ git add .</li>
-<li>$ git commit -am &#8220;Some comment here.&#8221;</li> 
-<li>$ git push origin source</li>
-<li>$ rake deploy</li>
+<li>https 是为了ios 7.1及以上版本也可以下载安装，地址自己配置，此处采用的是七牛提供的https服务</li>
+<li>xx.plist，无任何含义，只是你自己要提供的plist文件，具体如何设置，请google 或 baidu</li>
 </ol>
 
 
-<p></div></p>
+<p>需要注意的一点：<strong>xx.plist中的bundle id 要 和 xx.plist对应的ipa包的bound id 一致</strong>，不然 嘿嘿……
+以上是 一般网上都能查到的，但是我使用时出现了一个问题：</p>
+
+<pre><code>*有时候发布的新版本不生效，下载到的程序不是最新发布的版本*
+</code></pre>
+
+<p>当然该问题的出现不排除是我自己设置有误而导致的，希望有知道的朋友友情提示一下。
+不管哪里有问题，总要先解决
+目前我所找到的一个解决方法是 增加一个可变参数，如下所示：
+   <code>&lt;a href="itms-services://?action=download-manifest&amp;url=https://dn-xx.qbox.me/xx.plist&amp;app=4"&gt;点击这里安装.&lt;/a&gt;</code></p>
+
+<pre><code>*关键部位： &amp;app=4*
+</code></pre>
+
+<ul>
+<li>  参数名 随意设置，此处为app</li>
+<li>  参数值 随机生成，此处为4</li>
+</ul>
+
+
+<p>附加备忘另外一个问题：
+微信带图片分享失败</p>
+
+<blockquote><p>除了检查微信开放平台的提示信息，如title，description，image不能为空等，
+附加检查一下图片image的大小不超过32k
+以及图片image的像素大小，太大好像也不能分享成功，原因未知</p></blockquote>
 </div>
 
 
@@ -148,7 +154,7 @@ or
   
 
 
-<time datetime="2014-06-12T14:29:32+08:00" pubdate data-updated="true">Jun 12<span>th</span>, 2014</time>
+<time datetime="2014-06-25T11:01:07+08:00" pubdate data-updated="true">Jun 25<span>th</span>, 2014</time>
       
 
 
@@ -163,8 +169,8 @@ or
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/06/20/chan-pin-jing-li/" title="Previous Post: 产品经理">&laquo; 产品经理</a>
       
-        <a class="basic-alignment right" href="/blog/2014/06/13/iosqi-ye-zheng-shu-fa-bu-wen-ti/" title="Next Post: ios企业证书发布问题">ios企业证书发布问题 &raquo;</a>
       
     </p>
   </footer>

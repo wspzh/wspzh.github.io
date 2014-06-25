@@ -9,7 +9,9 @@
   <meta name="author" content="WSPZH">
 
   
-  <meta name="description" content="产品经理 最重要的能力： 让正确的事情相继发生，而非某一特定技能 全文参见 产品经理最重要的能力 什么是人才？人才就是给他一件事情，他完成了。再给他一件事情，他又完成了 相反，若我们(代指产品经理，下同)的目标是「让事情发生」，状态就会完全不同。为了让事情发生，就得杀红眼，就得人挡杀人佛挡杀佛。 &hellip;">
+  <meta name="description" content="使用企业版证书签名，并通过ota模式发布应用 使用企业版证书打包应用，很简单，只要证书、签名、boundid 配置正确，直接操作，基本没有问题
+采用ota方法发布应用 关键语句如下：
+&lt;a href="itms-services://?action=download-manifest&amp &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +67,80 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/25/ios-qi-ye-ban-fa-bu/">iOS 企业版APP发布</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-25T11:01:07+08:00" pubdate data-updated="true">Jun 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用企业版证书签名，并通过ota模式发布应用</p>
+
+<p>使用企业版证书打包应用，很简单，只要证书、签名、boundid 配置正确，直接操作，基本没有问题
+采用ota方法发布应用 关键语句如下：
+<code>&lt;a href="itms-services://?action=download-manifest&amp;url=https://dn-xx.qbox.me/xx.plist"&gt;点击这里安装.&lt;/a&gt;</code>
+其中</p>
+
+<ol>
+<li>https 是为了ios 7.1及以上版本也可以下载安装，地址自己配置，此处采用的是七牛提供的https服务</li>
+<li>xx.plist，无任何含义，只是你自己要提供的plist文件，具体如何设置，请google 或 baidu</li>
+</ol>
+
+
+<p>需要注意的一点：<strong>xx.plist中的bundle id 要 和 xx.plist对应的ipa包的bound id 一致</strong>，不然 嘿嘿……
+以上是 一般网上都能查到的，但是我使用时出现了一个问题：</p>
+
+<pre><code>*有时候发布的新版本不生效，下载到的程序不是最新发布的版本*
+</code></pre>
+
+<p>当然该问题的出现不排除是我自己设置有误而导致的，希望有知道的朋友友情提示一下。
+不管哪里有问题，总要先解决
+目前我所找到的一个解决方法是 增加一个可变参数，如下所示：
+   <code>&lt;a href="itms-services://?action=download-manifest&amp;url=https://dn-xx.qbox.me/xx.plist&amp;app=4"&gt;点击这里安装.&lt;/a&gt;</code></p>
+
+<pre><code>*关键部位： &amp;app=4*
+</code></pre>
+
+<ul>
+<li>  参数名 随意设置，此处为app</li>
+<li>  参数值 随机生成，此处为4</li>
+</ul>
+
+
+<p>附加备忘另外一个问题：
+微信带图片分享失败</p>
+
+<blockquote><p>除了检查微信开放平台的提示信息，如title，description，image不能为空等，
+附加检查一下图片image的大小不超过32k
+以及图片image的像素大小，太大好像也不能分享成功，原因未知</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -292,6 +368,10 @@ or
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/25/ios-qi-ye-ban-fa-bu/">iOS 企业版APP发布</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/06/20/chan-pin-jing-li/">产品经理</a>
