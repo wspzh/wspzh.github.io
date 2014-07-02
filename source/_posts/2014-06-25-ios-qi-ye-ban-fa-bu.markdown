@@ -21,11 +21,22 @@ categories:
 	*有时候发布的新版本不生效，下载到的程序不是最新发布的版本*
 当然该问题的出现不排除是我自己设置有误而导致的，希望有知道的朋友友情提示一下。
 不管哪里有问题，总要先解决
-目前我所找到的一个解决方法是 增加一个可变参数，如下所示： 
+~~目前我所找到的一个解决方法是 增加一个可变参数，如下所示： 
    `<a href="itms-services://?action=download-manifest&url=https://dn-xx.qbox.me/xx.plist&app=4">点击这里安装.</a>`
     *关键部位： &app=4*
 *     参数名	随意设置，此处为app  
-*     参数值	随机生成，此处为4
+*     参数值	随机生成，此处为4~~
+
+<strong style="color: red;">上述方法发现无效，坑</strong>
+
+最近发现是下载页面缓存的问题，到底是不是呢，俺也不确定了……
+现在的解决方法是在该html文件中加入以下语句，禁止html页面缓存
+ `<meta HTTP-EQUIV="Pragma" content="no-cache">   
+ <meta HTTP-EQUIV="Cache-Control" content="no-cache">   
+ <meta HTTP-EQUIV="Expires" content="0">   
+ <meta name="apple-mobile-web-app-capable" content="yes" />`
+
+
     
 附加备忘另外一个问题：
 微信带图片分享失败
