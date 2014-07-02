@@ -30,11 +30,10 @@ categories:
 <strong style="color: red;">上述方法发现无效，坑</strong>
 
 最近发现是下载页面缓存的问题，到底是不是呢，俺也不确定了……
-现在的解决方法是在该html文件中加入以下语句，禁止html页面缓存
- `<meta HTTP-EQUIV="Pragma" content="no-cache">   
- <meta HTTP-EQUIV="Cache-Control" content="no-cache">   
- <meta HTTP-EQUIV="Expires" content="0">   
- <meta name="apple-mobile-web-app-capable" content="yes" />`
+现在的解决方法是
+**每次动态修改.plist的文件名称**
+
+或许是因为我是先使用七牛存储ipa包，后改用其他服务器存储ipa包导致在读取同名plist文件内容时依然去下载原来存在七牛的ipa包，所以这个问题可能不是常见问题，只是个意外
 
 
     
